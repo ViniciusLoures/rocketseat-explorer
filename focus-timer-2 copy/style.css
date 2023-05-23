@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  
+  --bg-color-light: #ffffff;
+  --bg-card-color-light: #e1e1e6;
+  --bg-select-card-color: #02799d;
+  --ft-select-card-color-light: #FFFFFF;
+  --color-light: #323238;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-light);
+
+  display: grid;
+  min-height: 100vh;
+}
+
+main{
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  gap: 19rem;
+}
+
+#timer{
+  font-size: clamp(12.6166rem, 4rem + 10vw, 8.8rem);
+  line-height: 148px;
+  font-weight: 500;
+  display: flex;
+}
+
+.hide{
+  display: none;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.play svg path,
+.pause svg path,
+.stop svg path,
+.plus svg path,
+.less svg path{
+  fill: var(--color-light);
+}
+
+.forest svg path,
+.rain svg path,
+.coffeeShop svg path,
+.firePlace svg path{
+  fill: var(--color-light);
+}
+
+#models{
+  display: grid;
+  grid-template-areas: 'A B' 'C D';
+
+  gap: 3.2rem;
+}
+
+#models button {
+  background-color: var(--bg-card-color-light);
+  padding: 4.8rem;
+  border-radius: 24px;
+
+}
+
+#controls {
+  background-color: var(--primary-color);
+
+  display: flex;
+
+
+  gap: 3.2rem;
+  border-radius: 9999px;
+  text-align: center;
+  
+
+
+}
