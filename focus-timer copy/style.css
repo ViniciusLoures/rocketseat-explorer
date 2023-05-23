@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  
+  --bg-color-light: #ffffff;
+  --bg-card-color-light: #e1e1e6;
+  --bg-select-card-color-light: rgba(2, 121, 157, 1);
+  --color-light: #323238;
+
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-light);
+
+  display: grid;
+  min-height: 100vh;
+}
+
+main{
+  display: flex;
+  align-self: end;
+  justify-self: center;
+}
+
+footer{
+  align-self: end;
+  justify-self: end;
+  padding: 0 4rem 3.2rem 0;
+}
+
+#timer{
+  font-size: clamp(12rem, 4rem + 10vw, 8.8rem);
+  font-weight: 500;
+  display: flex;
+}
+
+.hide{
+  display: none;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+button svg {
+  width: clamp(3.2rem, 2rem + 12vw, 6.4rem);
+}
+
+.play svg path,
+.pause svg path,
+.stop svg path,
+.plus svg path,
+.less svg path{
+  fill: red;
+}
+
+.forest svg path,
+.rain svg path,
+.coffeeShop svg path,
+.firePlace svg path{
+  fill: var(--color-light);
+}
+
+#models{
+  display: grid;
+  grid-template-areas: 'A B' 'C D';
+
+  gap: 3.2rem;
+}
+
+#models button {
+  background-color: var(--bg-card-color-light);
+  padding: 4.8rem;
+  border-radius: 24px;
+
+}
+
+
+
+#controls {
+  background-color: var(--primary-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4.0rem;
+  border-radius: 9999px;
+  
+  width: clamp(10rem, 10rem + 30vw, 22.8rem);
+  height: clamp(8rem, 5rem + 10vw, 10.8rem);
+
+}
