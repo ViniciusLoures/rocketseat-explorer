@@ -10,9 +10,9 @@
   
   --bg-color-light: #ffffff;
   --bg-card-color-light: #e1e1e6;
-  --bg-select-card-color-light: rgba(2, 121, 157, 1);
+  --bg-select-card-color: #02799d;
+  --ft-select-card-color-light: #FFFFFF;
   --color-light: #323238;
-
 }
 
 body {
@@ -26,18 +26,14 @@ body {
 
 main{
   display: flex;
-  align-self: end;
+  align-self: center;
   justify-self: center;
-}
-
-footer{
-  align-self: end;
-  justify-self: end;
-  padding: 0 4rem 3.2rem 0;
+  gap: 19rem;
 }
 
 #timer{
-  font-size: clamp(12rem, 4rem + 10vw, 8.8rem);
+  font-size: clamp(12.6166rem, 4rem + 10vw, 8.8rem);
+  line-height: 148px;
   font-weight: 500;
   display: flex;
 }
@@ -49,12 +45,7 @@ footer{
 button{
   background-color: transparent;
   border: none;
-
   cursor: pointer;
-}
-
-button svg {
-  width: clamp(3.2rem, 2rem + 12vw, 6.4rem);
 }
 
 .play svg path,
@@ -62,7 +53,7 @@ button svg {
 .stop svg path,
 .plus svg path,
 .less svg path{
-  fill: red;
+  fill: var(--color-light);
 }
 
 .forest svg path,
@@ -86,19 +77,16 @@ button svg {
 
 }
 
-
-
 #controls {
   background-color: var(--primary-color);
 
   display: flex;
-  align-items: center;
-  justify-content: center;
 
-  gap: 4.0rem;
+
+  gap: 3.2rem;
   border-radius: 9999px;
+  text-align: center;
   
-  width: clamp(10rem, 10rem + 30vw, 22.8rem);
-  height: clamp(8rem, 5rem + 10vw, 10.8rem);
+
 
 }

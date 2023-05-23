@@ -1,18 +1,24 @@
 export function Controls({
-  btnPlay,
   btnPause,
-  btnSet,
-  btnStop,
-  btnSoundOn,
-  btnSoundOff,
+  btnPlay,
+  btnForest,
+  btnRain,
+  btnCoffee,
+  btnFire,
+  iconForest,
+  iconRain,
+  iconCoffee, 
+  iconFire,
+  playMusic,
+  pauseAllMusic
 }) {
 
-  
+  const listOfIcons = [ iconForest, iconRain, iconCoffee, iconFire]
+  const listOfModelsButtons = [ btnForest, btnRain, btnCoffee, btnFire]
+
   function play() {
     btnPlay.classList.add('hide')
     btnPause.classList.remove('hide')
-    btnSet.classList.add('hide')
-    btnStop.classList.remove('hide')
   }
   
   function pause() {
@@ -23,28 +29,35 @@ export function Controls({
   function stop() {
     btnPlay.classList.remove('hide')
     btnPause.classList.add('hide')
-    btnSet.classList.remove('hide')
-    btnStop.classList.add('hide')
-  }
-  
-  function toggleSound(){
-    btnSoundOn.classList.toggle('hide')
-    btnSoundOff.classList.toggle('hide')
+    resetAllSoundsBtn()
   }
 
-  function getTime() {
-    let newMinutes = prompt('Quantos minutos?')
-    if(!newMinutes){
-      return false
+
+  function resetAllSoundsBtn() {
+    for (let btn of listOfModelsButtons){
+      btn.style.backgroundColor = 'var(--bg-card-color-light)'
     }
-    return newMinutes
+
+    for(let icon of listOfIcons){
+      icon.style.fill = 'var(--color-light)'
+    }
+
+    pauseAllMusic()
+  }
+
+  function selectedBtn(btn, icon){
+    resetAllSoundsBtn();
+
+    btn.style.backgroundColor = "var(--bg-select-card-color)";
+    icon.style.fill = 'var(--bg-color-light)';
+    playMusic(btn.className)
+
   }
 
   return {
     stop,
     play,
     pause,
-    getTime, 
-    toggleSound
+    selectedBtn
   }
 }

@@ -4,23 +4,40 @@ import { elements } from "./elements.js";
 import Sound from "./sounds.js";
 
 const {
-  btnPlay,
   btnPause,
+  btnPlay,
   btnStop,
-  btnSet,
-  btnSoundOn,
-  btnSoundOff,
+  btnPlus,
+  btnLess,
+  btnForest,
+  btnRain,
+  btnCoffee,
+  btnFire,
+  iconForest,
+  iconRain,
+  iconCoffee, 
+  iconFire,
   minutesDisplay,
-  secondsDisplay
+  secondsDisplay,
 } = elements 
+
+const sounds = Sound();
 
 const controls = Controls({
   btnPause,
   btnPlay,
-  btnSet,
-  btnStop,
-  btnSoundOn,
-  btnSoundOff
+  btnPlus,
+  btnLess,
+  btnForest,
+  btnRain,
+  btnCoffee,
+  btnFire,
+  iconForest,
+  iconRain,
+  iconCoffee, 
+  iconFire,
+  playMusic: sounds.play,
+  pauseAllMusic: sounds.pauseAllSounds
 })
 
 const timer = Timer({
@@ -29,7 +46,6 @@ const timer = Timer({
   resetControls: controls.stop,
 })
 
-const sounds = Sound();
 
 btnPlay.addEventListener('click', function(){
   controls.play();
@@ -48,18 +64,25 @@ btnStop.addEventListener('click', function(){
   controls.stop();
   timer.reset();
   sounds.pressBtn();
-
 });
 
-btnSet.addEventListener('click', function(){
-  let newMinutes = controls.getTime();
-  if(!newMinutes){
-    timer.reset()
-    return;
-  }
-  timer.updateTimeDisplay(newMinutes,0);
-  timer.updateMinutes(newMinutes)
+btnPlus.addEventListener('click', function(){
+  timer.addTime();
 })
 
-btnSoundOn.addEventListener('click', controls.toggleSound);
-btnSoundOff.addEventListener('click', controls.toggleSound);
+btnLess.addEventListener('click', function(){
+  timer.removeTime();
+})
+
+btnForest.addEventListener('click', function(){
+  controls.selectedBtn(btnForest, iconForest);
+})
+btnRain.addEventListener('click', function(){
+  controls.selectedBtn(btnRain, iconRain);
+})
+btnCoffee.addEventListener('click', function(){
+  controls.selectedBtn(btnCoffee, iconCoffee);
+})
+btnFire.addEventListener('click', function(){
+  controls.selectedBtn(btnFire, iconFire);
+})

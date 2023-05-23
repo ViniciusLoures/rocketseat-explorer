@@ -54,11 +54,27 @@ export function Timer({
     clearTimeout(timerTimeOut)
   }
 
+  function addTime(){
+    minutes = minutes + 5;
+    updateMinutes(minutes);
+    updateTimeDisplay(minutes, 0);
+  }
+
+  function removeTime(){
+    if(minutes > 5){
+      minutes = minutes - 5;
+      updateMinutes(minutes);
+      updateTimeDisplay(minutes, 0);
+    }
+  }
+
   return {
     countDown,
     reset,
     updateTimeDisplay,
     updateMinutes,
-    hold
+    hold,
+    addTime, 
+    removeTime
   }
 }
