@@ -8,25 +8,26 @@
   font-size: 62.5%;
 
   
-  --bg-color-light: #ffffff;
-  --bg-card-color-light: #e1e1e6;
-  --bg-select-card-color: #02799d;
-  --ft-select-card-color-light: #FFFFFF;
-  --color-light: #323238;
+  --bg-color: #ffffff;
+  --bg-card-color: #e1e1e6;
+  --bg-card-color-select: #02799d;
+
+  --fc-primary: #FFFFFF;
+  --fc-secondary: #323238;
 }
 
 body {
   background-color: var(--bg-color);
   font-family: 'Roboto', sans-serif;
-  color: var(--color-light);
-
+  color: var(--fc-secondary);
   display: grid;
   min-height: 100vh;
+  transition: all 0.3s;
 }
 
 main{
   display: flex;
-  align-self: center;
+  align-self: top;
   justify-self: center;
   gap: 19rem;
 }
@@ -52,29 +53,28 @@ button{
 .pause svg path,
 .stop svg path,
 .plus svg path,
-.less svg path{
-  fill: var(--color-light);
-}
-
+.less svg path,
 .forest svg path,
 .rain svg path,
-.coffeeShop svg path,
-.firePlace svg path{
-  fill: var(--color-light);
+.coffee svg path,
+.fire svg path{
+  fill: var(--fc-secondary);
+
+  transition: all 0.1s;
 }
 
 #models{
   display: grid;
   grid-template-areas: 'A B' 'C D';
-
+  align-self: start;
   gap: 3.2rem;
 }
 
 #models button {
-  background-color: var(--bg-card-color-light);
+  background-color: var(--bg-card-color);
   padding: 4.8rem;
   border-radius: 24px;
-
+  display: grid;
 }
 
 #controls {
@@ -86,7 +86,14 @@ button{
   gap: 3.2rem;
   border-radius: 9999px;
   text-align: center;
-  
+}
 
+.theme-light,
+.theme-dark {
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
 
+  border: none;
+  background-color: transparent;
 }

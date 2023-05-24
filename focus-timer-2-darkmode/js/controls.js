@@ -9,6 +9,9 @@ export function Controls({
   iconRain,
   iconCoffee, 
   iconFire,
+  btnLight,
+  btnDark,
+  root,
   playMusic,
   pauseAllMusic
 }) {
@@ -35,11 +38,11 @@ export function Controls({
 
   function resetAllSoundsBtn() {
     for (let btn of listOfModelsButtons){
-      btn.style.backgroundColor = 'var(--bg-card-color-light)'
+      btn.style.backgroundColor = 'var(--bg-card-color)'
     }
 
     for(let icon of listOfIcons){
-      icon.style.fill = 'var(--color-light)'
+      icon.style.fill = 'var(--fc-secondary)'
     }
 
     pauseAllMusic()
@@ -48,16 +51,30 @@ export function Controls({
   function selectedBtn(btn, icon){
     resetAllSoundsBtn();
 
-    btn.style.backgroundColor = "var(--bg-select-card-color)";
-    icon.style.fill = 'var(--bg-color-light)';
+    btn.style.backgroundColor = "var(--bg-card-color-select)";
+    icon.style.fill = 'var(--fc-primary)';
     playMusic(btn.className)
 
   }
+
+  function toggleTheme(theme){
+    btnDark.classList.toggle('hide')
+    btnLight.classList.toggle('hide')
+    toogleColors(theme);
+  }
+
+  function toogleColors(theme) {
+    for (const property in theme) {
+      root.style.setProperty(theme[property][0], theme[property][1]);
+    }
+  }
+  
 
   return {
     stop,
     play,
     pause,
-    selectedBtn
+    selectedBtn,
+    toggleTheme
   }
 }

@@ -17,8 +17,13 @@ const {
   iconRain,
   iconCoffee, 
   iconFire,
+  btnLight,
+  btnDark,
   minutesDisplay,
   secondsDisplay,
+  root,
+  lightColorsList,
+  darkColorsList
 } = elements 
 
 const sounds = Sound();
@@ -36,6 +41,9 @@ const controls = Controls({
   iconRain,
   iconCoffee, 
   iconFire,
+  btnLight,
+  btnDark,
+  root,
   playMusic: sounds.play,
   pauseAllMusic: sounds.pauseAllSounds
 })
@@ -85,4 +93,12 @@ btnCoffee.addEventListener('click', function(){
 })
 btnFire.addEventListener('click', function(){
   controls.selectedBtn(btnFire, iconFire);
+})
+
+btnLight.addEventListener('click', function(){
+  controls.toggleTheme(darkColorsList)
+})
+
+btnDark.addEventListener('click', function(){
+  controls.toggleTheme(lightColorsList)
 })
